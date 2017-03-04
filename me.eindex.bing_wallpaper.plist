@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>me.eindex.bing_wallpaper.plist</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>sh</string>
+      <string>/Users/eindex/PycharmProjects/bing-wallpaper/get_wallpaper.sh</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Minute</key>
+        <integer>10</integer>
+        <key>Hour</key>
+        <integer>10</integer>
+    </dict>
+    <key>StartInterval</key>
+    <integer>14400</integer>
+    <key>StandardOutPath</key>
+    <string>/Users/eindex/Documents/AutoMakeLog.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/eindex/Documents/AutoMakeLog.err</string>
+  </dict>
+</plist>
