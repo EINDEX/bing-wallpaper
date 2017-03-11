@@ -40,29 +40,29 @@ def get_wallpaper():
         data = r.content.decode()
         j = json.loads(BeautifulSoup(data, 'lxml').text)
         for image in j['images']:
-            print(image)
             for resolution, declare in resolution_dict.items():
                 r2 = requests.get(f'{bing_url}{image["urlbase"]}_{resolution}.jpg')
                 if r2.ok:
-                    path = f'image/{resolution}'
+                    path = f'{src}image/{resolution}'
                     if not os.path.exists(path):
                         os.mkdir(path)
                     with open(f'{path}/{os.path.basename(r2.url)}', 'wb') as jpg:
                         jpg.write(r2.content)
                         last_image = f'{os.getcwd()}/{jpg.name}'
-                        print(last_image)
     if last_image is None or len(last_image) == 0:
         return None
     else:
         return last_image
 
 
-def set_wallpaper(src):
-    subprocess.Popen(SCRIPT % src, shell=True)
+def set_wallpaper(s):
+    subprocess.Popen(SCRIPT % s, shell=True)
 
 
 if __name__ == '__main__':
-    if not os.path.exists('image'):
-        os.mkdir('image')
+    src = '/Users/eindex/PycharmProjects/bing-wallpaper/'
+    if not os.path.exists(src + 'image'):
+        os.mkdir(src + 'image')
     img = get_wallpaper()
-    set_wallpaper(img)
+    if img:
+        set_wallpaper(img)
