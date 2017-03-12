@@ -48,7 +48,7 @@ def get_wallpaper():
                         os.mkdir(path)
                     with open(f'{path}/{os.path.basename(r2.url)}', 'wb') as jpg:
                         jpg.write(r2.content)
-                        last_image = f'{os.getcwd()}/{jpg.name}'
+                        last_image = f'{jpg.name}'
     if last_image is None or len(last_image) == 0:
         return None
     else:
